@@ -15,8 +15,8 @@ def sort(arr):
                 temp = arr[inner]
                 arr[inner] = arr[inner+1]
                 arr[inner+1] = temp
-    print("results from Bubble sort")
-    print(arr)
+    #print("results from Bubble sort")
+    #print(arr)
     #return arr 
 
 #print(arr)
@@ -131,8 +131,8 @@ def merge_sort(array):
 
 alist = [54,26,93,17,77,31,44,55,20]
 
-print("results from merge sort")
-print(merge_sort(alist))
+#print("results from merge sort")
+#print(merge_sort(alist))
 
 
 
@@ -172,8 +172,8 @@ def countingSort(array):
 
 data = [4, 2, 2, 8, 3, 3, 1]
 countingSort(data)
-print("Sorted Array in Ascending Order: ")
-print(data)
+#print("Sorted Array in Ascending Order: ")
+#print(data)
 
 
 
@@ -196,8 +196,8 @@ def insertionSort(alist):
 
 alist = [54,26,93,17,77,31,44,55,20]
 insertionSort(alist)
-print("results from insertion sort")
-print(alist)
+#print("results from insertion sort")
+#print(alist)
 
 
 
@@ -343,5 +343,5 @@ def timsort(array):
 
 
     return array
-print("results from tim sort")
-print(timsort(alist))
+#print("results from tim sort")
+#print(timsort(alist))
