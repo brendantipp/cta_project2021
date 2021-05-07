@@ -7,7 +7,7 @@
 # Bubble sort - simple comparison based sort
 #code as per lectures
 
-def sort(arr):
+def bubble_sort(arr):
     n = len(arr)
     for outer in range(n-1, 0, -1):
         for inner in range(0,outer,1):
@@ -21,7 +21,7 @@ def sort(arr):
 
 #print(arr)
 arr = [12,3,6]
-sort(arr)
+bubble_sort(arr)
 
 
 
