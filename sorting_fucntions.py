@@ -1,9 +1,5 @@
 #The five sorting fucntions i have selected are as follows
 
-
-
-
-
 # Bubble sort - simple comparison based sort
 #code as per lectures
 
@@ -17,14 +13,25 @@ def bubble_sort(arr):
                 arr[inner+1] = temp
     #print("results from Bubble sort")
     #print(arr)
-    #return arr 
-
-#print(arr)
-arr = [12,3,6]
-bubble_sort(arr)
+    return arr 
 
 
+#https://www.geeksforgeeks.org/bubble-sort/
 
+def bubble_sort2(arr):
+    n = len(arr)
+ 
+    # Traverse through all array elements
+    for i in range(n):
+ 
+        # Last i elements are already in place
+        for j in range(0, n-i-1):
+ 
+            # traverse the array from 0 to n-i-1
+            # Swap if the element found is greater
+            # than the next element
+            if arr[j] > arr[j+1] :
+                arr[j], arr[j+1] = arr[j+1], arr[j]
 
 
 ## Merge sort - efficient comparison based sort
@@ -129,7 +136,7 @@ def merge_sort(array):
 
         right=merge_sort(array[midpoint:]))
 
-alist = [54,26,93,17,77,31,44,55,20]
+#alist = [54,26,93,17,77,31,44,55,20]
 
 #print("results from merge sort")
 #print(merge_sort(alist))
@@ -142,63 +149,45 @@ alist = [54,26,93,17,77,31,44,55,20]
 #https://www.programiz.com/dsa/counting-sort
 #reviewed https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php also
 
-def countingSort(array):
-    size = len(array)
-    output = [0] * size
-
-    # Initialize count array
-    count = [0] * 10
-
-    # Store the count of each elements in count array
-    for i in range(0, size):
-        count[array[i]] += 1
-
-    # Store the cummulative count
-    for i in range(1, 10):
-        count[i] += count[i - 1]
-
-    # Find the index of each element of the original array in count array
-    # place the elements in output array
-    i = size - 1
-    while i >= 0:
-        output[count[array[i]] - 1] = array[i]
-        count[array[i]] -= 1
-        i -= 1
-
-    # Copy the sorted elements into original array
-    for i in range(0, size):
-        array[i] = output[i]
 
 
-data = [4, 2, 2, 8, 3, 3, 1]
-countingSort(data)
+
+#data = [4, 2, 2, 8, 3, 3, 1]
+#countingSort(data)
 #print("Sorted Array in Ascending Order: ")
 #print(data)
 
+# Python program for counting sort
+
+# The main function that sort the given string arr[] in
+# alphabetical order
+
+#https://codezup.com/implementation-of-counting-sort-algorithm-in-python/
+
+def counting_sort(array):
 
 
+    maxValue = 0
+    for i in range(len(array)):
+        if array[i] > maxValue:
+            maxValue = array[i]
+
+    buckets = [0] * (maxValue + 1)
+
+    for i in array:
+        buckets[i] += 1
+
+    i = 0
+    for j in range(maxValue + 1):
+         for _ in range(buckets[j]):
+             array[i] = j
+             i += 1
+
+    return array
 
 
 #Insertion sort - a simple comparison based sort
 # code adapted from lectures
-
-def insertionSort(alist):
-   for index in range(1,len(alist)):
-
-     currentvalue = alist[index]
-     position = index
-
-     while position>0 and alist[position-1]>currentvalue:
-         alist[position]=alist[position-1]
-         position = position-1
-
-     alist[position]=currentvalue
-
-alist = [54,26,93,17,77,31,44,55,20]
-insertionSort(alist)
-#print("results from insertion sort")
-#print(alist)
-
 
 
 
@@ -207,7 +196,7 @@ insertionSort(alist)
 
 # Tim sort 
 
-def insertion_sort2(array, left=0, right=None):
+def insertion_sort(array, left=0, right=None):
 
     if right is None:
 
@@ -283,7 +272,7 @@ def timsort(array):
 
     for i in range(0, n, min_run):
 
-        insertion_sort2(array, i, min((i + min_run - 1), n - 1))
+        insertion_sort(array, i, min((i + min_run - 1), n - 1))
 
 
     # Now you can start merging the sorted slices.
