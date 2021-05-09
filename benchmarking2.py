@@ -41,10 +41,10 @@ def timer(algorithm,input_array):
 def main():
     global input_sizes
     #input_sizes = [100,250]
-    input_sizes = [100,200,300,500]
+    #input_sizes = [100,200,300,500]
     #input_sizes = [100,250,500,750,1000,1250,2500]
     
-    #input_sizes = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]
+    input_sizes = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]
     
     num_runs =  10
 
@@ -74,12 +74,12 @@ def main():
             temp_merge_results.append(timer(sf.merge_sort,random_array(n)))
             
           
-        bubble_results.append(np.around(np.mean(temp_bubble_results)*1000/10,3))
+        bubble_results.append(np.around(np.mean(temp_bubble_results)*1000,3))
         #print(bubble_results)
-        counting_results.append(np.around(np.mean(temp_counting_results)*1000/10,3))
-        insertion_results.append(np.around(np.mean(temp_insertion_results)*1000/10,3))
-        timsort_results.append(np.around(np.mean(temp_timsort_results)*1000/10,3))
-        merge_results.append(np.around(np.mean(temp_merge_results)*1000/10,3))
+        counting_results.append(np.around(np.mean(temp_counting_results)*1000,3))
+        insertion_results.append(np.around(np.mean(temp_insertion_results)*1000,3))
+        timsort_results.append(np.around(np.mean(temp_timsort_results)*1000,3))
+        merge_results.append(np.around(np.mean(temp_merge_results)*1000,3))
         
         
     algorithm_df = pd.DataFrame()
@@ -117,9 +117,6 @@ def print_df():
     plt.ylabel("Running Time")
 
     plt.show()
-
-
-
 
 
 if __name__ == "__main__":
